@@ -1,0 +1,28 @@
+{
+  "pipeline": [
+    {
+      "name": "random_horizontal_flip",
+      "params": {
+        "p": 1.0
+      }
+    },
+    {
+      "name": "random_rotation",
+      "params": {
+        "angle_range": [-45, 45]
+      }
+    },
+    {
+      "name": "brightness_adjust",
+      "params": {
+        "delta_range": [30, 30]
+      }
+    },
+    {
+      "name": "contrast_adjust",
+      "params": {
+        "factor_range": [1.2, 1.2]
+      }
+    }
+  ]
+}

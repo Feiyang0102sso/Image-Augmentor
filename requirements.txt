@@ -1,0 +1,5 @@
+Pillow~=11.2.1
+pytest~=8.4.1
+opencv-python~=4.11.0.86
+matplotlib~=3.10.3
+numpy~=2.1.3
