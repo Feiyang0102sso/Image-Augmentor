@@ -1,28 +1,8 @@
 {
-  "pipeline": [
-    {
-      "name": "random_horizontal_flip",
-      "params": {
-        "p": 1.0
-      }
-    },
-    {
-      "name": "random_rotation",
-      "params": {
-        "angle_range": [-45, 45]
-      }
-    },
-    {
-      "name": "brightness_adjust",
-      "params": {
-        "delta_range": [30, 30]
-      }
-    },
-    {
-      "name": "contrast_adjust",
-      "params": {
-        "factor_range": [1.2, 1.2]
-      }
-    }
-  ]
+    "pipeline": [
+        {"name": "RandomHorizontalFlip", "params": {"p": 1}},
+        {"name": "RandomRotation", "params": {"angle_range": [-15, 15]}},
+        {"name": "BrightnessAdjust", "params": {"delta_range": [20, 60]}},
+        {"name": "ContrastAdjust", "params": {"factor_range": [1.5, 2.5]}}
+    ]
 }

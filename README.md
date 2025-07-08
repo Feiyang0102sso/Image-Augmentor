@@ -15,13 +15,18 @@
 
 ```bash
 augmentor/
-├── demo_picture/ #测试文件夹
-│   ├── batches/
-│   │   └── (请在此处放入用于批量测试的图片) #多张图片测试
-│   └── single_demo.JPEG  # 单张图片测试
-├── augmentor_module.py   # 数据增强核心模块
-├── augmentor_demo.py         # 演示脚本
-└── config.json           # 增强流程配置文件
+├── demo_picture/
+│   ├── batches/                  # 多图批量测试图片
+│   │   └── (放置测试图片)
+│   └── single_demo.JPEG          # 单图测试图片
+├── augmentor_module.py           # 调度和加载各增强模块
+├── augmentor_demo.py             # 测试 / 演示脚本
+├── BrightnessAdjust.py           # 新增：亮度调整模块
+├── ContrastAdjust.py             # 新增：对比度调整模块
+├── RandomHorizontalFlip.py       # 新增：随机水平翻转模块
+├── RandomRotation.py             # 新增：随机旋转模块
+├── config.json                   # 可配置增强流水线和参数
+└── README.md                     # 
 ```
 
 ## 安装与依赖
@@ -170,8 +175,8 @@ git push
 
 ## 更新记录
 
-| 版本号 | 日期      | 更新内容摘要 |
-| :----- | --------- | ------------ |
-| v1.0.0 | 2025-07-5 | initial push |
-|        |           |              |
-|        |           |              |
+| 版本号 | 日期      | 更新内容摘要                             |
+| :----- | --------- | ---------------------------------------- |
+| v1.0.0 | 2025-07-5 | initial push                             |
+| v1.1.0 | 2025-07-8 | 允许进行图片批处理<br />优化代码避免臃肿 |
+|        |           |                                          |
