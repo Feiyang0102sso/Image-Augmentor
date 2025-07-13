@@ -1,8 +1,8 @@
 {
     "pipeline": [
-        {"name": "RandomHorizontalFlip", "params": {"p": 1}},
-        {"name": "RandomRotation", "params": {"angle_range": [-15, 15]}},
-        {"name": "BrightnessAdjust", "params": {"delta_range": [20, 60]}},
+        {"name": "RandomHorizontalFlip", "params": {"p": 0.5}},
+        {"name": "RandomRotation", "params": {"angle_range": [100, 50]}},
+        {"name": "BrightnessAdjust", "params": {"delta_range": [30, 60]}},
         {"name": "ContrastAdjust", "params": {"factor_range": [1.5, 2.5]}}
     ]
 }

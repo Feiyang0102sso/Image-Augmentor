@@ -1,0 +1,66 @@
+2025-07-13 23:28:18,128 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:28:18,133 [INFO] Building RandomChoice with: ['RandomRotation']
+2025-07-13 23:28:18,142 [INFO] [RandomChoice] Selected transform: RandomRotation
+2025-07-13 23:28:18,142 [INFO] Single image rotated with angle: 43.43 degrees
+2025-07-13 23:28:20,210 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-13 23:30:39,424 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:30:39,438 [INFO] Single image rotated with angle: 79.57 degrees
+2025-07-13 23:30:47,403 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-13 23:49:00,684 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:49:00,698 [INFO] Single image rotated with angle: 64.74 degrees
+2025-07-13 23:49:00,701 [INFO] Single image adjusted with brightness delta: 31.30
+2025-07-13 23:49:09,594 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-13 23:49:20,633 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:49:20,644 [INFO] Single image rotated with angle: 68.53 degrees
+2025-07-13 23:49:20,647 [INFO] Single image adjusted with brightness delta: -30.00
+2025-07-13 23:49:25,720 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-13 23:51:50,051 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:51:50,058 [INFO] Single image rotated with angle: 85.51 degrees
+2025-07-13 23:51:50,061 [INFO] Single image adjusted with brightness delta: 33.82
+2025-07-13 23:51:56,193 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-13 23:52:01,766 [INFO] === Batch Image Augmentation Demo ===
+2025-07-13 23:52:01,772 [INFO] Single image rotated with angle: 81.50 degrees
+2025-07-13 23:52:01,776 [INFO] Single image adjusted with brightness delta: 31.41
+2025-07-13 23:52:01,780 [INFO] [1/4] Processed: ILSVRC2012_val_00003014.JPEG
+2025-07-13 23:52:01,787 [INFO] Single image rotated with angle: 50.40 degrees
+2025-07-13 23:52:01,788 [INFO] Single image adjusted with brightness delta: 44.78
+2025-07-13 23:52:01,794 [INFO] [2/4] Processed: ILSVRC2012_val_00006697.JPEG
+2025-07-13 23:52:01,800 [INFO] Single image rotated with angle: 96.31 degrees
+2025-07-13 23:52:01,801 [INFO] Single image adjusted with brightness delta: 41.28
+2025-07-13 23:52:01,807 [INFO] [3/4] Processed: ILSVRC2012_val_00007197.JPEG
+2025-07-13 23:52:01,812 [INFO] Single image rotated with angle: 63.90 degrees
+2025-07-13 23:52:01,813 [INFO] Single image adjusted with brightness delta: 50.22
+2025-07-13 23:52:01,819 [INFO] [4/4] Processed: ILSVRC2012_val_00009346.JPEG
+2025-07-13 23:52:59,841 [INFO] Saved visualization to demo_picture/batchs/augmented_comparison_grid.png
+2025-07-13 23:59:28,209 [INFO] === Single Image Augmentation Demo ===
+2025-07-13 23:59:28,217 [INFO] Single image rotated with angle: 57.20 degrees
+2025-07-13 23:59:28,221 [INFO] Single image adjusted with brightness delta: 47.68
+2025-07-13 23:59:35,271 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:00:09,510 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:00:09,521 [INFO] Single image rotated with angle: 74.88 degrees
+2025-07-14 00:00:09,524 [INFO] Single image adjusted with brightness delta: 51.65
+2025-07-14 00:00:13,547 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:01:30,084 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:01:30,098 [INFO] Single image rotated with angle: 90.33 degrees
+2025-07-14 00:01:30,101 [INFO] Single image adjusted with brightness delta: 46.98
+2025-07-14 00:01:33,580 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:01:47,425 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:01:47,436 [INFO] Single image rotated with angle: 90.15 degrees
+2025-07-14 00:01:47,439 [INFO] Single image adjusted with brightness delta: 41.81
+2025-07-14 00:01:51,246 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:05:06,915 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:05:06,935 [INFO] Single image flipped horizontally with probability 1
+2025-07-14 00:05:06,935 [INFO] Single image rotated with angle: 92.78 degrees
+2025-07-14 00:05:06,938 [INFO] Single image adjusted with brightness delta: 49.72
+2025-07-14 00:05:14,469 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:05:36,339 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:05:36,349 [INFO] Single image not flipped, probability 0.5
+2025-07-14 00:05:36,349 [INFO] Single image rotated with angle: 69.94 degrees
+2025-07-14 00:05:36,353 [INFO] Single image adjusted with brightness delta: 49.59
+2025-07-14 00:05:58,925 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-14 00:08:18,572 [INFO] === Single Image Augmentation Demo ===
+2025-07-14 00:08:18,582 [INFO] Single image flipped horizontally with probability 0.5
+2025-07-14 00:08:18,582 [INFO] Single image rotated with angle: 72.77 degrees
+2025-07-14 00:08:18,585 [INFO] Single image adjusted with brightness delta: 43.19
+2025-07-14 00:08:18,588 [INFO] Single image adjusted with contrast factor: 2.12
+2025-07-14 00:08:39,412 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
