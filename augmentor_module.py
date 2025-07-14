@@ -39,7 +39,7 @@ class ImageAugmentor:
 
                     # wrap with prob
                     if prob < 1.0:
-                        transform = self._wrap_with_probability(transform, prob)
+                        transform = self._wrap_with_probability(transform, prob, op_name)
                     transforms.append(transform)
             except ModuleNotFoundError:
                 raise ValueError(f"未找到增强模块 {op_name}.py，请确认文件存在。")
@@ -47,16 +47,19 @@ class ImageAugmentor:
                 raise ValueError(f"{op_name}.py 中未找到类 {op_name}，请确认实现正确。")
         return transforms
 
-    def _wrap_with_probability(self, transform, prob):
+    def _wrap_with_probability(self, transform, prob, transform_name):
         def wrapped(image):
             if random.random() < prob:
-                return transform(image)
-            return image
+                result = transform(image)
+                logging.info(f"Applied {transform_name} with probability {prob}")
+                return result
+            else:
+                logging.info(f"Skipped {transform_name} with probability {prob}")
+                return image
 
         return wrapped
 
     def augment(self, images):
-
         # 堆叠图像
         if isinstance(images, list):
             images = np.stack(images, axis=0)

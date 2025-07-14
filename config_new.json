@@ -1,0 +1,29 @@
+{
+  "pipeline": [
+    {
+      "name": "RandomCrop",
+      "params": {
+        "crop_size": [200, 200]
+      }
+    },
+    {
+      "name": "RandomAffine",
+      "params": {
+        "max_translate": 0.8
+      }
+    },
+    {
+      "name": "RandomSaturation",
+      "params": {
+        "lower": 1.4,
+        "upper": 1.9
+      }
+    },
+    {
+      "name": "RandomHue",
+      "params": {
+        "delta": 50
+      }
+    }
+  ]
+}

@@ -4,13 +4,13 @@ import sys
 import matplotlib.pyplot as plt
 import logging
 import numpy as np
+import argparse
 from augmentor_module import ImageAugmentor
 
 # === Configuration ===
 SINGLE_IMAGE_PATH = "demo_picture/single_demo.JPEG"
 BATCH_FOLDER = "demo_picture/batchs"
-CONFIG_FILE = "config.json"
-# config.json config_random_choice.json
+CONFIG_FILE = "config.json"  # Default config file
 SINGLE_SAVE_PATH = "demo_picture/single_augmented_comparison.png"
 BATCH_SAVE_PATH = "demo_picture/batchs/augmented_comparison_grid.png"
 SUPPORTED_EXT = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"]
@@ -25,11 +25,20 @@ logging.basicConfig(
     ]
 )
 
+# Parse command line arguments
+parser = argparse.ArgumentParser(description="Image augmentation demo with custom config file.")
+parser.add_argument('mode', choices=['single', 'batch'], help='Mode of operation: single or batch')
+parser.add_argument('--config', type=str, default=CONFIG_FILE, help='Path to the JSON config file (default: config.json)')
+args = parser.parse_args()
+CONFIG_FILE = args.config  # Update CONFIG_FILE with the provided argument
+logging.info(f"Using config file: {CONFIG_FILE}")  # Log the selected config file
 
 def load_augmentor(config_file):
     """Initialize the ImageAugmentor with the given config file."""
     try:
+        logging.info(f"Attempting to load config file: {config_file}")
         augmentor = ImageAugmentor(config_file)
+        logging.info(f"Successfully loaded config file: {config_file}")
         return augmentor
     except Exception as e:
         logging.error(f"Failed to initialize ImageAugmentor: {e}")
@@ -160,15 +169,13 @@ if __name__ == "__main__":
     Usage:
     python augmentor_demo.py single   # Single image augmentation visualization
     python augmentor_demo.py batch    # Batch image augmentation visualization
+    python augmentor_demo.py single --config custom_config.json  # Custom config file
+    python augmentor_demo.py batch --config custom_config.json   # Custom config file
     """
-    if len(sys.argv) < 2:
-        logging.error("Please specify mode: single or batch")
-        sys.exit(1)
-
-    mode = sys.argv[1].lower()
-    if mode == "single":
+    logging.info(f"Running in mode: {args.mode}")  # Log the selected mode
+    if args.mode == "single":
         run_single_demo()
-    elif mode == "batch":
+    elif args.mode == "batch":
         run_batch_demo()
     else:
         logging.error("Invalid mode, use: single or batch")

@@ -1,0 +1,14 @@
+{
+  "pipeline": [
+    {
+      "name": "RandomHorizontalFlip",
+      "params": {"p": 1},
+      "prob": 1
+    },
+    {
+      "name": "RandomRotation",
+      "params": {"angle_range": [-10, 150]},
+      "prob": 1
+    }
+  ]
+}
