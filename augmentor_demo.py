@@ -5,14 +5,19 @@ import matplotlib.pyplot as plt
 import logging
 import numpy as np
 import argparse
+import torch
+import torchvision.models as models
+import torchvision.transforms as transforms
 from augmentor_module import ImageAugmentor
+from PIL import Image
 
 # === Configuration ===
 SINGLE_IMAGE_PATH = "demo_picture/single_demo.JPEG"
 BATCH_FOLDER = "demo_picture/batchs"
-CONFIG_FILE = "config.json"  # Default config file
+CONFIG_FILE = "config.json"
 SINGLE_SAVE_PATH = "demo_picture/single_augmented_comparison.png"
 BATCH_SAVE_PATH = "demo_picture/batchs/augmented_comparison_grid.png"
+REPORT_PATH = "demo_picture/inference_report.png"
 SUPPORTED_EXT = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"]
 
 # Setup logging
@@ -28,10 +33,29 @@ logging.basicConfig(
 # Parse command line arguments
 parser = argparse.ArgumentParser(description="Image augmentation demo with custom config file.")
 parser.add_argument('mode', choices=['single', 'batch'], help='Mode of operation: single or batch')
-parser.add_argument('--config', type=str, default=CONFIG_FILE, help='Path to the JSON config file (default: config.json)')
+parser.add_argument('--config', type=str, default=CONFIG_FILE, help='Path to the JSON config file')
 args = parser.parse_args()
-CONFIG_FILE = args.config  # Update CONFIG_FILE with the provided argument
-logging.info(f"Using config file: {CONFIG_FILE}")  # Log the selected config file
+CONFIG_FILE = args.config
+logging.info(f"Using config file: {CONFIG_FILE}")
+
+# Initialize pre-trained ResNet model
+model = models.resnet50(pretrained=True)
+model.eval()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+
+# ImageNet class labels (simplified, should load full labels in practice)
+with open('imagenet_classes.txt') as f:
+    classes = [line.strip() for line in f.readlines()]
+
+# Define preprocessing transforms for ResNet
+preprocess = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
 
 def load_augmentor(config_file):
     """Initialize the ImageAugmentor with the given config file."""
@@ -43,16 +67,15 @@ def load_augmentor(config_file):
     except Exception as e:
         logging.error(f"Failed to initialize ImageAugmentor: {e}")
         raise e
-        # sys.exit(1)
+
 
 def get_pipeline_info(augmentor):
+    """Get titles for augmentation pipeline."""
     titles = []
     for op in augmentor.pipeline:
         name = op["name"]
         params = op.get("params", {})
-
         if name == "RandomChoice":
-            # 提取 choices 列表中每个子增强的 name
             choices = params.get("choices", [])
             choice_names = [c["name"] for c in choices]
             title = f"RandomChoice({', '.join(choice_names)})"
@@ -63,25 +86,53 @@ def get_pipeline_info(augmentor):
     return ["Original"] + titles
 
 
-def plot_all_grid(images, augmented_images_list, titles, save_path):
-    """Plot original and augmented images in a grid."""
-    num_images = len(images)
-    num_cols = len(augmented_images_list[0]) + 1  # Original + augmented
+def infer_image(image, return_probs=False):
+    """Run inference on a single image."""
+    # Convert OpenCV image (BGR) to PIL image (RGB)
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    pil_image = Image.fromarray(image_rgb)
 
-    plt.figure(figsize=(5 * num_cols, 5 * num_images))
+    # Apply preprocessing
+    input_tensor = preprocess(pil_image)
+    input_batch = input_tensor.unsqueeze(0).to(device)
+
+    # Run inference
+    with torch.no_grad():
+        output = model(input_batch)
+        probabilities = torch.nn.functional.softmax(output[0], dim=0)
+
+    # Get top prediction
+    confidence, predicted_idx = torch.max(probabilities, 0)
+    predicted_class = classes[predicted_idx]
+
+    if return_probs:
+        return predicted_class, confidence.item(), probabilities
+    return predicted_class, confidence.item()
+
+
+def plot_all_grid(images, augmented_images_list, titles, save_path, predictions=None):
+    """Plot original and augmented images with predictions in a grid."""
+    num_images = len(images)
+    num_cols = len(augmented_images_list[0]) + 1
+
+    plt.figure(figsize=(5 * num_cols, 6 * num_images))
 
     for row_idx, (orig_img, aug_imgs) in enumerate(zip(images, augmented_images_list)):
         orig_rgb = cv2.cvtColor(orig_img, cv2.COLOR_BGR2RGB)
 
+        # Plot original image
         plt.subplot(num_images, num_cols, row_idx * num_cols + 1)
-        plt.title(titles[0])  # Use "Original" as the title for the first column
+        pred_text = f"{predictions[row_idx][0][0]} ({predictions[row_idx][0][1]:.2%})"
+        plt.title(f"{titles[0]}\n{pred_text}")
         plt.axis('off')
         plt.imshow(orig_rgb)
 
+        # Plot augmented images
         for col_idx, aug_img in enumerate(aug_imgs):
             aug_rgb = cv2.cvtColor(aug_img, cv2.COLOR_BGR2RGB)
             plt.subplot(num_images, num_cols, row_idx * num_cols + col_idx + 2)
-            plt.title(titles[col_idx + 1])  # Use subsequent titles for augmented images
+            pred_text = f"{predictions[row_idx][col_idx + 1][0]} ({predictions[row_idx][col_idx + 1][1]:.2%})"
+            plt.title(f"{titles[col_idx + 1]}\n{pred_text}")
             plt.axis('off')
             plt.imshow(aug_rgb)
 
@@ -91,8 +142,28 @@ def plot_all_grid(images, augmented_images_list, titles, save_path):
     plt.close()
     logging.info(f"Saved visualization to {save_path}")
 
+
+def generate_report(images, augmented_images_list, titles, predictions, report_path):
+    """Generate a visualization report with predictions."""
+    plot_all_grid(images, augmented_images_list, titles, report_path, predictions)
+
+    # Generate markdown report
+    with open('inference_report.md', 'w') as f:
+        f.write("# Image Augmentation Inference Report\n\n")
+        f.write(f"![Visualization]({report_path})\n\n")
+        f.write("## Prediction Results\n\n")
+
+        for row_idx, (orig_img, aug_imgs) in enumerate(zip(images, augmented_images_list)):
+            f.write(f"### Image {row_idx + 1}\n")
+            f.write(f"- **Original**: {predictions[row_idx][0][0]} ({predictions[row_idx][0][1]:.2%})\n")
+            for col_idx, aug_img in enumerate(aug_imgs):
+                f.write(
+                    f"- **{titles[col_idx + 1]}**: {predictions[row_idx][col_idx + 1][0]} ({predictions[row_idx][col_idx + 1][1]:.2%})\n")
+            f.write("\n")
+
+
 def run_single_demo():
-    """Run demo for a single image."""
+    """Run demo for a single image with inference."""
     logging.info("=== Single Image Augmentation Demo ===")
 
     if not os.path.exists(SINGLE_IMAGE_PATH):
@@ -107,17 +178,27 @@ def run_single_demo():
     augmentor = load_augmentor(CONFIG_FILE)
     titles = get_pipeline_info(augmentor)
 
-    # Apply each transformation individually
+    # Get original prediction
+    orig_pred, orig_conf = infer_image(image)
+    logging.info(f"Original image prediction: {orig_pred} ({orig_conf:.2%})")
+
+    # Apply augmentations and get predictions
     augmented_images = []
+    predictions = [[(orig_pred, orig_conf)]]
     current_image = image.copy()
     for transform in augmentor.transforms:
         current_image = transform(current_image)
+        aug_pred, aug_conf = infer_image(current_image)
         augmented_images.append(current_image.copy())
+        predictions[0].append((aug_pred, aug_conf))
+        logging.info(f"Augmented image ({transform.__class__.__name__}) prediction: {aug_pred} ({aug_conf:.2%})")
 
-    plot_all_grid([image], [augmented_images], titles, SINGLE_SAVE_PATH)
+    # Generate visualization and report
+    generate_report([image], [augmented_images], titles, predictions, REPORT_PATH)
+
 
 def run_batch_demo():
-    """Run demo for a batch of images."""
+    """Run demo for a batch of images with inference."""
     logging.info("=== Batch Image Augmentation Demo ===")
 
     if not os.path.exists(BATCH_FOLDER):
@@ -127,7 +208,7 @@ def run_batch_demo():
     image_files = [
         f for f in os.listdir(BATCH_FOLDER)
         if os.path.splitext(f)[1].lower() in SUPPORTED_EXT
-        and "augmented_comparison_grid" not in f
+           and "augmented_comparison_grid" not in f
     ]
 
     if not image_files:
@@ -138,6 +219,7 @@ def run_batch_demo():
     titles = get_pipeline_info(augmentor)
     images = []
     augmented_images_list = []
+    predictions = []
 
     for idx, fname in enumerate(image_files, 1):
         img_path = os.path.join(BATCH_FOLDER, fname)
@@ -147,32 +229,34 @@ def run_batch_demo():
             continue
 
         try:
-            # Apply each transformation individually
+            # Get original prediction
+            orig_pred, orig_conf = infer_image(image)
+            logging.info(f"[{idx}/{len(image_files)}] Original {fname}: {orig_pred} ({orig_conf:.2%})")
+
+            # Apply augmentations and get predictions
             augmented_images = []
+            image_predictions = [(orig_pred, orig_conf)]
             current_image = image.copy()
             for transform in augmentor.transforms:
                 current_image = transform(current_image)
+                aug_pred, aug_conf = infer_image(current_image)
                 augmented_images.append(current_image.copy())
+                image_predictions.append((aug_pred, aug_conf))
+                logging.info(
+                    f"[{idx}/{len(image_files)}] Augmented {fname} ({transform.__class__.__name__}): {aug_pred} ({aug_conf:.2%})")
+
             images.append(image)
             augmented_images_list.append(augmented_images)
-            logging.info(f"[{idx}/{len(image_files)}] Processed: {fname}")
+            predictions.append(image_predictions)
         except Exception as e:
             logging.warning(f"Augmentation failed for {fname}: {e}")
 
     if images:
-        plot_all_grid(images, augmented_images_list, titles, BATCH_SAVE_PATH)
-    else:
-        logging.warning("No valid images for batch augmentation")
+        generate_report(images, augmented_images_list, titles, predictions, BATCH_SAVE_PATH)
+
 
 if __name__ == "__main__":
-    """
-    Usage:
-    python augmentor_demo.py single   # Single image augmentation visualization
-    python augmentor_demo.py batch    # Batch image augmentation visualization
-    python augmentor_demo.py single --config custom_config.json  # Custom config file
-    python augmentor_demo.py batch --config custom_config.json   # Custom config file
-    """
-    logging.info(f"Running in mode: {args.mode}")  # Log the selected mode
+    logging.info(f"Running in mode: {args.mode}")
     if args.mode == "single":
         run_single_demo()
     elif args.mode == "batch":

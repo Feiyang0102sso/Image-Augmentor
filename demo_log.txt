@@ -43,3 +43,75 @@
 2025-07-14 12:17:27,820 [INFO] [RandomChoice] Selected transform: RandomRotation
 2025-07-14 12:17:27,820 [INFO] Single image rotated with angle: 73.34 degrees
 2025-07-14 12:17:37,711 [INFO] Saved visualization to demo_picture/single_augmented_comparison.png
+2025-07-19 00:49:51,482 [INFO] Using config file: config.json
+2025-07-19 00:49:51,898 [INFO] Running in mode: single
+2025-07-19 00:49:51,899 [INFO] === Single Image Augmentation Demo ===
+2025-07-19 00:49:51,902 [INFO] Attempting to load config file: config.json
+2025-07-19 00:49:51,906 [INFO] Successfully loaded config file: config.json
+2025-07-19 00:49:51,981 [INFO] Original image prediction: sturgeon (55.37%)
+2025-07-19 00:49:51,981 [INFO] Single image not flipped, probability 0.5
+2025-07-19 00:49:52,039 [INFO] Augmented image (RandomHorizontalFlip) prediction: sturgeon (55.37%)
+2025-07-19 00:49:52,039 [INFO] Single image rotated with angle: 70.87 degrees
+2025-07-19 00:49:52,097 [INFO] Augmented image (RandomRotation) prediction: tench (34.52%)
+2025-07-19 00:49:52,097 [INFO] Single image adjusted with brightness delta: 39.11
+2025-07-19 00:49:52,156 [INFO] Augmented image (BrightnessAdjust) prediction: tench (41.10%)
+2025-07-19 00:49:52,157 [INFO] Single image adjusted with contrast factor: 1.66
+2025-07-19 00:49:52,209 [INFO] Augmented image (ContrastAdjust) prediction: tench (50.04%)
+2025-07-19 00:50:22,021 [INFO] Saved visualization to demo_picture/inference_report.png
+2025-07-19 00:58:54,444 [INFO] Using config file: config.json
+2025-07-19 00:58:54,787 [INFO] Running in mode: batch
+2025-07-19 00:58:54,787 [INFO] === Batch Image Augmentation Demo ===
+2025-07-19 00:58:54,788 [INFO] Attempting to load config file: config.json
+2025-07-19 00:58:54,791 [INFO] Successfully loaded config file: config.json
+2025-07-19 00:58:54,872 [INFO] [1/4] Original ILSVRC2012_val_00003014.JPEG: tench (76.35%)
+2025-07-19 00:58:54,874 [INFO] Single image not flipped, probability 0.5
+2025-07-19 00:58:54,935 [INFO] [1/4] Augmented ILSVRC2012_val_00003014.JPEG (RandomHorizontalFlip): tench (76.35%)
+2025-07-19 00:58:54,935 [INFO] Single image rotated with angle: 92.00 degrees
+2025-07-19 00:58:54,995 [INFO] [1/4] Augmented ILSVRC2012_val_00003014.JPEG (RandomRotation): polecat (21.89%)
+2025-07-19 00:58:54,996 [INFO] Single image adjusted with brightness delta: 55.62
+2025-07-19 00:58:55,057 [INFO] [1/4] Augmented ILSVRC2012_val_00003014.JPEG (BrightnessAdjust): sleeping bag (17.66%)
+2025-07-19 00:58:55,057 [INFO] Single image adjusted with contrast factor: 2.42
+2025-07-19 00:58:55,123 [INFO] [1/4] Augmented ILSVRC2012_val_00003014.JPEG (ContrastAdjust): swing (14.07%)
+2025-07-19 00:58:55,190 [INFO] [2/4] Original ILSVRC2012_val_00006697.JPEG: tench (99.88%)
+2025-07-19 00:58:55,191 [INFO] Single image flipped horizontally with probability 0.5
+2025-07-19 00:58:55,252 [INFO] [2/4] Augmented ILSVRC2012_val_00006697.JPEG (RandomHorizontalFlip): tench (99.37%)
+2025-07-19 00:58:55,253 [INFO] Single image rotated with angle: 70.76 degrees
+2025-07-19 00:58:55,320 [INFO] [2/4] Augmented ILSVRC2012_val_00006697.JPEG (RandomRotation): tench (98.02%)
+2025-07-19 00:58:55,320 [INFO] Single image adjusted with brightness delta: 45.03
+2025-07-19 00:58:55,384 [INFO] [2/4] Augmented ILSVRC2012_val_00006697.JPEG (BrightnessAdjust): tench (99.64%)
+2025-07-19 00:58:55,388 [INFO] Single image adjusted with contrast factor: 2.43
+2025-07-19 00:58:55,461 [INFO] [2/4] Augmented ILSVRC2012_val_00006697.JPEG (ContrastAdjust): tench (97.03%)
+2025-07-19 00:58:55,528 [INFO] [3/4] Original ILSVRC2012_val_00007197.JPEG: tench (100.00%)
+2025-07-19 00:58:55,528 [INFO] Single image not flipped, probability 0.5
+2025-07-19 00:58:55,592 [INFO] [3/4] Augmented ILSVRC2012_val_00007197.JPEG (RandomHorizontalFlip): tench (100.00%)
+2025-07-19 00:58:55,592 [INFO] Single image rotated with angle: 94.15 degrees
+2025-07-19 00:58:55,654 [INFO] [3/4] Augmented ILSVRC2012_val_00007197.JPEG (RandomRotation): tench (99.86%)
+2025-07-19 00:58:55,654 [INFO] Single image adjusted with brightness delta: 49.84
+2025-07-19 00:58:55,718 [INFO] [3/4] Augmented ILSVRC2012_val_00007197.JPEG (BrightnessAdjust): tench (99.69%)
+2025-07-19 00:58:55,718 [INFO] Single image adjusted with contrast factor: 1.63
+2025-07-19 00:58:55,786 [INFO] [3/4] Augmented ILSVRC2012_val_00007197.JPEG (ContrastAdjust): tench (97.51%)
+2025-07-19 00:58:55,859 [INFO] [4/4] Original ILSVRC2012_val_00009346.JPEG: tench (99.78%)
+2025-07-19 00:58:55,859 [INFO] Single image not flipped, probability 0.5
+2025-07-19 00:58:55,920 [INFO] [4/4] Augmented ILSVRC2012_val_00009346.JPEG (RandomHorizontalFlip): tench (99.78%)
+2025-07-19 00:58:55,920 [INFO] Single image rotated with angle: 53.58 degrees
+2025-07-19 00:58:55,985 [INFO] [4/4] Augmented ILSVRC2012_val_00009346.JPEG (RandomRotation): tench (95.44%)
+2025-07-19 00:58:55,985 [INFO] Single image adjusted with brightness delta: 40.35
+2025-07-19 00:58:56,047 [INFO] [4/4] Augmented ILSVRC2012_val_00009346.JPEG (BrightnessAdjust): tench (93.74%)
+2025-07-19 00:58:56,048 [INFO] Single image adjusted with contrast factor: 1.56
+2025-07-19 00:58:56,112 [INFO] [4/4] Augmented ILSVRC2012_val_00009346.JPEG (ContrastAdjust): tench (86.15%)
+2025-07-19 00:59:14,098 [INFO] Saved visualization to demo_picture/batchs/augmented_comparison_grid.png
+2025-07-19 09:50:46,463 [INFO] Using config file: config.json
+2025-07-19 09:50:47,050 [INFO] Running in mode: single
+2025-07-19 09:50:47,050 [INFO] === Single Image Augmentation Demo ===
+2025-07-19 09:50:47,058 [INFO] Attempting to load config file: config.json
+2025-07-19 09:50:47,066 [INFO] Successfully loaded config file: config.json
+2025-07-19 09:50:47,168 [INFO] Original image prediction: sturgeon (55.37%)
+2025-07-19 09:50:47,168 [INFO] Single image not flipped, probability 0.5
+2025-07-19 09:50:47,242 [INFO] Augmented image (RandomHorizontalFlip) prediction: sturgeon (55.37%)
+2025-07-19 09:50:47,243 [INFO] Single image rotated with angle: 87.48 degrees
+2025-07-19 09:50:47,326 [INFO] Augmented image (RandomRotation) prediction: tench (43.39%)
+2025-07-19 09:50:47,326 [INFO] Single image adjusted with brightness delta: 47.14
+2025-07-19 09:50:47,411 [INFO] Augmented image (BrightnessAdjust) prediction: tench (46.55%)
+2025-07-19 09:50:47,411 [INFO] Single image adjusted with contrast factor: 2.18
+2025-07-19 09:50:47,495 [INFO] Augmented image (ContrastAdjust) prediction: dugong (16.65%)
+2025-07-19 09:51:08,934 [INFO] Saved visualization to demo_picture/inference_report.png
