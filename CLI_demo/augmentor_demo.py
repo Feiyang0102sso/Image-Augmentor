@@ -6,18 +6,21 @@ import logging
 import numpy as np
 import argparse
 import torch
+from PIL import Image
 import torchvision.models as models
 import torchvision.transforms as transforms
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from augmentor_module import ImageAugmentor
-from PIL import Image
+
+# augmentor_demo.py
 
 # === Configuration ===
-SINGLE_IMAGE_PATH = "demo_picture/single_demo.JPEG"
-BATCH_FOLDER = "demo_picture/batchs"
+SINGLE_IMAGE_PATH = "../demo_picture/single_demo.JPEG"
+BATCH_FOLDER = "../demo_picture/batchs"
 CONFIG_FILE = "config.json"
-SINGLE_SAVE_PATH = "demo_picture/single_augmented_comparison.png"
-BATCH_SAVE_PATH = "demo_picture/batchs/augmented_comparison_grid.png"
-REPORT_PATH = "demo_picture/inference_report.png"
+BATCH_SAVE_PATH = "../demo_picture/batchs/augmented_comparison_grid.png"
+SINGLE_SAVE_PATH = "../demo_picture/single_augmented_comparison.png"
 SUPPORTED_EXT = [".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"]
 
 # Setup logging
@@ -60,8 +63,9 @@ preprocess = transforms.Compose([
 def load_augmentor(config_file):
     """Initialize the ImageAugmentor with the given config file."""
     try:
-        logging.info(f"Attempting to load config file: {config_file}")
-        augmentor = ImageAugmentor(config_file)
+        config_file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), config_file)
+        logging.info(f"Attempting to load config file: {config_file_path}")
+        augmentor = ImageAugmentor(config_file_path)
         logging.info(f"Successfully loaded config file: {config_file}")
         return augmentor
     except Exception as e:
@@ -143,14 +147,14 @@ def plot_all_grid(images, augmented_images_list, titles, save_path, predictions=
     logging.info(f"Saved visualization to {save_path}")
 
 
-def generate_report(images, augmented_images_list, titles, predictions, report_path):
+def generate_report(images, augmented_images_list, titles, predictions, SINGLE_SAVE_PATH):
     """Generate a visualization report with predictions."""
-    plot_all_grid(images, augmented_images_list, titles, report_path, predictions)
+    plot_all_grid(images, augmented_images_list, titles, SINGLE_SAVE_PATH, predictions)
 
     # Generate markdown report
     with open('inference_report.md', 'w') as f:
         f.write("# Image Augmentation Inference Report\n\n")
-        f.write(f"![Visualization]({report_path})\n\n")
+        f.write(f"![Visualization]({SINGLE_SAVE_PATH})\n\n")
         f.write("## Prediction Results\n\n")
 
         for row_idx, (orig_img, aug_imgs) in enumerate(zip(images, augmented_images_list)):
@@ -194,7 +198,7 @@ def run_single_demo():
         logging.info(f"Augmented image ({transform.__class__.__name__}) prediction: {aug_pred} ({aug_conf:.2%})")
 
     # Generate visualization and report
-    generate_report([image], [augmented_images], titles, predictions, REPORT_PATH)
+    generate_report([image], [augmented_images], titles, predictions, SINGLE_SAVE_PATH)
 
 
 def run_batch_demo():

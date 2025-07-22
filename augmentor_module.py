@@ -4,10 +4,14 @@ import random
 import logging
 
 import numpy as np
+import sys
+import os
 
-from RandomChoice import RandomChoice
+from functions.RandomChoice import RandomChoice
 
+sys.path.append(os.path.join(os.path.dirname(__file__), 'functions'))
 
+# augmentor_module.py
 class ImageAugmentor:
     def __init__(self, config_path):
         with open(config_path, 'r') as f:
@@ -33,7 +37,7 @@ class ImageAugmentor:
                     transforms.append(RandomChoice(choices))
                     logging.info(f"Building RandomChoice with: {[c.__class__.__name__ for c in choices]}")
                 else:
-                    module = importlib.import_module(op_name)
+                    module = importlib.import_module(f'functions.{op_name}')
                     cls = getattr(module, op_name)
                     transform = cls(**params)
 

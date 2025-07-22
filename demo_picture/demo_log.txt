@@ -1,0 +1,214 @@
+2025-07-22 20:05:32,903 [INFO] ³É¹¦¼ÓÔØ²¢½âÎöÉÏ´«µÄÅäÖÃÎÄ¼þ¡£
+2025-07-22 20:05:33,152 [INFO] ÎÄ¼þ: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Ô­Ê¼Í¼ÏñÔ¤²â: plate rack (43.42%)
+2025-07-22 20:05:33,152 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 20:05:33,229 [INFO] ...ÔöÇ¿ºó (RandomHorizontalFlip) Ô¤²â: comic book (13.40%)
+2025-07-22 20:05:33,230 [INFO] Single image rotated with angle: 53.47 degrees
+2025-07-22 20:05:33,309 [INFO] ...ÔöÇ¿ºó (RandomRotation) Ô¤²â: tray (9.25%)
+2025-07-22 20:05:33,310 [INFO] Single image adjusted with brightness delta: 57.08
+2025-07-22 20:05:33,393 [INFO] ...ÔöÇ¿ºó (BrightnessAdjust) Ô¤²â: paintbrush (9.35%)
+2025-07-22 20:05:33,394 [INFO] Single image adjusted with contrast factor: 2.36
+2025-07-22 20:05:33,478 [INFO] ...ÔöÇ¿ºó (ContrastAdjust) Ô¤²â: envelope (20.83%)
+2025-07-22 20:45:16,348 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 20:45:16,426 [INFO] Single image rotated with angle: 66.25 degrees
+2025-07-22 20:45:16,506 [INFO] Single image adjusted with brightness delta: 45.21
+2025-07-22 20:45:16,597 [INFO] Single image adjusted with contrast factor: 2.36
+2025-07-22 20:47:25,116 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 20:47:25,198 [INFO] Single image rotated with angle: 84.68 degrees
+2025-07-22 20:47:25,283 [INFO] Single image adjusted with brightness delta: 42.36
+2025-07-22 20:47:25,369 [INFO] Single image adjusted with contrast factor: 2.15
+2025-07-22 20:47:25,533 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 20:47:25,617 [INFO] Single image rotated with angle: 78.24 degrees
+2025-07-22 20:47:25,698 [INFO] Single image adjusted with brightness delta: 31.75
+2025-07-22 20:47:25,782 [INFO] Single image adjusted with contrast factor: 2.30
+2025-07-22 20:49:26,857 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 20:49:26,946 [INFO] Single image rotated with angle: 50.57 degrees
+2025-07-22 20:49:27,033 [INFO] Single image adjusted with brightness delta: 56.90
+2025-07-22 20:49:27,117 [INFO] Single image adjusted with contrast factor: 2.07
+2025-07-22 20:51:21,870 [INFO] Single image cropped at top: 123, left: 85 with size 200x200
+2025-07-22 20:51:21,948 [INFO] Single image translated with tx: 37.60, ty: 72.43
+2025-07-22 20:51:22,032 [INFO] Single image adjusted with saturation scale: 1.78
+2025-07-22 20:51:22,109 [INFO] Single image adjusted with hue shift: -15
+2025-07-22 21:04:41,110 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:04:41,110 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:04:41,166 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 21:04:41,166 [INFO] Single image rotated with angle: 54.86 degrees
+2025-07-22 21:04:41,232 [INFO] Augmented (RandomRotation) prediction: potter's wheel (10.00%)
+2025-07-22 21:04:41,232 [INFO] Single image adjusted with brightness delta: 55.23
+2025-07-22 21:04:41,298 [INFO] Augmented (BrightnessAdjust) prediction: envelope (9.56%)
+2025-07-22 21:04:41,298 [INFO] Single image adjusted with contrast factor: 2.26
+2025-07-22 21:04:41,352 [INFO] Augmented (ContrastAdjust) prediction: envelope (34.32%)
+2025-07-22 21:05:34,859 [INFO] File: single_demo.JPEG | Original prediction: sturgeon (55.37%)
+2025-07-22 21:05:34,859 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:05:34,936 [INFO] Augmented (RandomHorizontalFlip) prediction: sturgeon (84.13%)
+2025-07-22 21:05:34,937 [INFO] Single image rotated with angle: 85.43 degrees
+2025-07-22 21:05:35,015 [INFO] Augmented (RandomRotation) prediction: tench (75.27%)
+2025-07-22 21:05:35,017 [INFO] Single image adjusted with brightness delta: 43.67
+2025-07-22 21:05:35,101 [INFO] Augmented (BrightnessAdjust) prediction: tench (83.63%)
+2025-07-22 21:05:35,101 [INFO] Single image adjusted with contrast factor: 2.05
+2025-07-22 21:05:35,179 [INFO] Augmented (ContrastAdjust) prediction: coho (58.77%)
+2025-07-22 21:12:59,663 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:12:59,664 [INFO] Single image cropped at top: 131, left: 308 with size 200x200
+2025-07-22 21:12:59,741 [INFO] Augmented (RandomCrop) prediction: plate rack (28.31%)
+2025-07-22 21:12:59,741 [INFO] Single image translated with tx: -24.95, ty: 97.05
+2025-07-22 21:12:59,828 [INFO] Augmented (RandomAffine) prediction: sundial (68.92%)
+2025-07-22 21:12:59,829 [INFO] Single image adjusted with saturation scale: 1.60
+2025-07-22 21:12:59,906 [INFO] Augmented (RandomSaturation) prediction: sundial (68.92%)
+2025-07-22 21:12:59,906 [INFO] Single image adjusted with hue shift: 50
+2025-07-22 21:12:59,979 [INFO] Augmented (RandomHue) prediction: sundial (68.92%)
+2025-07-22 21:17:44,146 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:17:44,147 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:17:44,227 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 21:17:44,227 [INFO] Single image rotated with angle: 50.34 degrees
+2025-07-22 21:17:44,312 [INFO] Augmented (RandomRotation) prediction: comic book (15.77%)
+2025-07-22 21:17:44,312 [INFO] Single image adjusted with brightness delta: 40.61
+2025-07-22 21:17:44,395 [INFO] Augmented (BrightnessAdjust) prediction: paintbrush (8.32%)
+2025-07-22 21:17:44,396 [INFO] Single image adjusted with contrast factor: 1.99
+2025-07-22 21:17:44,483 [INFO] Augmented (ContrastAdjust) prediction: envelope (10.56%)
+2025-07-22 21:18:12,490 [INFO] File: single_demo.JPEG | Original prediction: sturgeon (55.37%)
+2025-07-22 21:18:12,490 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:18:12,569 [INFO] Augmented (RandomHorizontalFlip) prediction: sturgeon (84.13%)
+2025-07-22 21:18:12,569 [INFO] Single image rotated with angle: 52.68 degrees
+2025-07-22 21:18:12,662 [INFO] Augmented (RandomRotation) prediction: tench (25.30%)
+2025-07-22 21:18:12,662 [INFO] Single image adjusted with brightness delta: 30.64
+2025-07-22 21:18:12,743 [INFO] Augmented (BrightnessAdjust) prediction: barracouta (40.05%)
+2025-07-22 21:18:12,744 [INFO] Single image adjusted with contrast factor: 2.50
+2025-07-22 21:18:12,819 [INFO] Augmented (ContrastAdjust) prediction: tench (34.58%)
+2025-07-22 21:18:12,884 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:18:12,885 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:18:12,961 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 21:18:12,961 [INFO] Single image rotated with angle: 85.50 degrees
+2025-07-22 21:18:13,046 [INFO] Augmented (RandomRotation) prediction: mixing bowl (12.24%)
+2025-07-22 21:18:13,046 [INFO] Single image adjusted with brightness delta: 35.69
+2025-07-22 21:18:13,142 [INFO] Augmented (BrightnessAdjust) prediction: chambered nautilus (13.82%)
+2025-07-22 21:18:13,142 [INFO] Single image adjusted with contrast factor: 2.12
+2025-07-22 21:18:13,226 [INFO] Augmented (ContrastAdjust) prediction: envelope (10.48%)
+2025-07-22 21:32:26,298 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:32:26,299 [INFO] Single image cropped at top: 330, left: 344 with size 200x200
+2025-07-22 21:32:26,356 [INFO] Augmented (RandomCrop) prediction: plate rack (23.00%)
+2025-07-22 21:32:26,356 [INFO] Single image translated with tx: -140.83, ty: 3.60
+2025-07-22 21:32:26,416 [INFO] Augmented (RandomAffine) prediction: vase (10.40%)
+2025-07-22 21:32:26,416 [INFO] Single image adjusted with saturation scale: 1.87
+2025-07-22 21:32:26,473 [INFO] Augmented (RandomSaturation) prediction: vase (10.39%)
+2025-07-22 21:32:26,474 [INFO] Single image adjusted with hue shift: -43
+2025-07-22 21:32:26,524 [INFO] Augmented (RandomHue) prediction: vase (10.40%)
+2025-07-22 21:33:11,667 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:33:11,668 [INFO] Single image cropped at top: 225, left: 26 with size 200x200
+2025-07-22 21:33:11,743 [INFO] Augmented (RandomCrop) prediction: comic book (8.86%)
+2025-07-22 21:33:11,744 [INFO] Single image translated with tx: -62.18, ty: -39.78
+2025-07-22 21:33:11,818 [INFO] Augmented (RandomAffine) prediction: hook (5.70%)
+2025-07-22 21:33:11,819 [INFO] Single image adjusted with saturation scale: 1.61
+2025-07-22 21:33:11,887 [INFO] Augmented (RandomSaturation) prediction: hook (5.70%)
+2025-07-22 21:33:11,890 [INFO] Single image adjusted with hue shift: -50
+2025-07-22 21:33:11,964 [INFO] Augmented (RandomHue) prediction: hook (5.70%)
+2025-07-22 21:58:52,744 [INFO] Using default configuration file: config.json
+2025-07-22 21:58:52,848 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:58:52,848 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:58:52,928 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 21:58:52,928 [INFO] Single image rotated with angle: 57.83 degrees
+2025-07-22 21:58:53,010 [INFO] Augmented (RandomRotation) prediction: plate rack (16.86%)
+2025-07-22 21:58:53,011 [INFO] Single image adjusted with brightness delta: 43.17
+2025-07-22 21:58:53,087 [INFO] Augmented (BrightnessAdjust) prediction: binder (8.46%)
+2025-07-22 21:58:53,088 [INFO] Single image adjusted with contrast factor: 1.62
+2025-07-22 21:58:53,166 [INFO] Augmented (ContrastAdjust) prediction: envelope (12.32%)
+2025-07-22 21:59:08,382 [INFO] Using uploaded configuration file: config_new.json
+2025-07-22 21:59:08,522 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:59:08,524 [INFO] Single image cropped at top: 350, left: 194 with size 200x200
+2025-07-22 21:59:08,603 [INFO] Augmented (RandomCrop) prediction: cup (26.86%)
+2025-07-22 21:59:08,604 [INFO] Single image translated with tx: 45.36, ty: 39.25
+2025-07-22 21:59:08,678 [INFO] Augmented (RandomAffine) prediction: vase (30.71%)
+2025-07-22 21:59:08,679 [INFO] Single image adjusted with saturation scale: 1.50
+2025-07-22 21:59:08,748 [INFO] Augmented (RandomSaturation) prediction: vase (30.71%)
+2025-07-22 21:59:08,748 [INFO] Single image adjusted with hue shift: 21
+2025-07-22 21:59:08,818 [INFO] Augmented (RandomHue) prediction: vase (30.72%)
+2025-07-22 21:59:18,257 [INFO] Using default configuration file: config.json
+2025-07-22 21:59:18,352 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 21:59:18,353 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 21:59:18,426 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 21:59:18,426 [INFO] Single image rotated with angle: 72.41 degrees
+2025-07-22 21:59:18,506 [INFO] Augmented (RandomRotation) prediction: comic book (14.79%)
+2025-07-22 21:59:18,507 [INFO] Single image adjusted with brightness delta: 39.24
+2025-07-22 21:59:18,585 [INFO] Augmented (BrightnessAdjust) prediction: comic book (14.18%)
+2025-07-22 21:59:18,585 [INFO] Single image adjusted with contrast factor: 2.38
+2025-07-22 21:59:18,663 [INFO] Augmented (ContrastAdjust) prediction: envelope (31.72%)
+2025-07-22 22:04:01,301 [INFO] Using default configuration file: config.json
+2025-07-22 22:04:01,376 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 22:04:01,377 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:04:01,628 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 22:04:01,628 [INFO] Single image rotated with angle: 84.95 degrees
+2025-07-22 22:04:01,734 [INFO] Augmented (RandomRotation) prediction: potter's wheel (10.48%)
+2025-07-22 22:04:01,734 [INFO] Single image adjusted with brightness delta: 56.03
+2025-07-22 22:04:01,834 [INFO] Augmented (BrightnessAdjust) prediction: binder (8.32%)
+2025-07-22 22:04:01,834 [INFO] Single image adjusted with contrast factor: 1.92
+2025-07-22 22:04:01,914 [INFO] Augmented (ContrastAdjust) prediction: envelope (28.43%)
+2025-07-22 22:06:58,405 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 22:06:58,406 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:06:58,485 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 22:06:58,486 [INFO] Single image rotated with angle: 98.87 degrees
+2025-07-22 22:06:58,563 [INFO] Augmented (RandomRotation) prediction: mixing bowl (12.78%)
+2025-07-22 22:06:58,563 [INFO] Single image adjusted with brightness delta: 57.28
+2025-07-22 22:06:58,644 [INFO] Augmented (BrightnessAdjust) prediction: coil (3.99%)
+2025-07-22 22:06:58,644 [INFO] Single image adjusted with contrast factor: 1.67
+2025-07-22 22:06:58,715 [INFO] Augmented (ContrastAdjust) prediction: envelope (22.39%)
+2025-07-22 22:07:55,465 [INFO] File: single_demo.JPEG | Original prediction: sturgeon (55.37%)
+2025-07-22 22:07:55,465 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:07:55,545 [INFO] Augmented (RandomHorizontalFlip) prediction: sturgeon (84.13%)
+2025-07-22 22:07:55,546 [INFO] Single image rotated with angle: 55.37 degrees
+2025-07-22 22:07:55,628 [INFO] Augmented (RandomRotation) prediction: tench (53.61%)
+2025-07-22 22:07:55,629 [INFO] Single image adjusted with brightness delta: 54.66
+2025-07-22 22:07:55,706 [INFO] Augmented (BrightnessAdjust) prediction: tench (75.69%)
+2025-07-22 22:07:55,707 [INFO] Single image adjusted with contrast factor: 2.41
+2025-07-22 22:07:55,793 [INFO] Augmented (ContrastAdjust) prediction: tench (44.31%)
+2025-07-22 22:10:38,998 [INFO] File: single_demo.JPEG | Original prediction: sturgeon (55.37%)
+2025-07-22 22:10:39,001 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:10:39,076 [INFO] Augmented (RandomHorizontalFlip) prediction: sturgeon (84.13%)
+2025-07-22 22:10:39,077 [INFO] Single image rotated with angle: 84.08 degrees
+2025-07-22 22:10:39,159 [INFO] Augmented (RandomRotation) prediction: tench (82.28%)
+2025-07-22 22:10:39,160 [INFO] Single image adjusted with brightness delta: 33.83
+2025-07-22 22:10:39,237 [INFO] Augmented (BrightnessAdjust) prediction: tench (86.35%)
+2025-07-22 22:10:39,238 [INFO] Single image adjusted with contrast factor: 1.57
+2025-07-22 22:10:39,311 [INFO] Augmented (ContrastAdjust) prediction: tench (80.01%)
+2025-07-22 22:10:39,400 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 22:10:39,400 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:10:39,480 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 22:10:39,480 [INFO] Single image rotated with angle: 82.96 degrees
+2025-07-22 22:10:39,553 [INFO] Augmented (RandomRotation) prediction: comic book (16.25%)
+2025-07-22 22:10:39,554 [INFO] Single image adjusted with brightness delta: 48.26
+2025-07-22 22:10:39,638 [INFO] Augmented (BrightnessAdjust) prediction: potter's wheel (15.63%)
+2025-07-22 22:10:39,639 [INFO] Single image adjusted with contrast factor: 1.56
+2025-07-22 22:10:39,717 [INFO] Augmented (ContrastAdjust) prediction: envelope (8.07%)
+2025-07-22 22:31:32,839 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 22:31:32,840 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 22:31:32,919 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 22:31:32,920 [INFO] Single image rotated with angle: 66.17 degrees
+2025-07-22 22:31:33,004 [INFO] Augmented (RandomRotation) prediction: comic book (13.10%)
+2025-07-22 22:31:33,005 [INFO] Single image adjusted with brightness delta: 41.01
+2025-07-22 22:31:33,099 [INFO] Augmented (BrightnessAdjust) prediction: binder (8.72%)
+2025-07-22 22:31:33,099 [INFO] Single image adjusted with contrast factor: 2.12
+2025-07-22 22:31:33,197 [INFO] Augmented (ContrastAdjust) prediction: envelope (27.43%)
+2025-07-22 23:04:26,719 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 23:04:26,720 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 23:04:26,804 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 23:04:26,804 [INFO] Single image rotated with angle: 62.58 degrees
+2025-07-22 23:04:26,892 [INFO] Augmented (RandomRotation) prediction: paintbrush (15.35%)
+2025-07-22 23:04:26,893 [INFO] Single image adjusted with brightness delta: 46.94
+2025-07-22 23:04:26,972 [INFO] Augmented (BrightnessAdjust) prediction: paintbrush (10.89%)
+2025-07-22 23:04:26,973 [INFO] Single image adjusted with contrast factor: 2.26
+2025-07-22 23:04:27,056 [INFO] Augmented (ContrastAdjust) prediction: envelope (38.17%)
+2025-07-22 23:04:54,677 [INFO] File: single_demo.JPEG | Original prediction: sturgeon (55.37%)
+2025-07-22 23:04:54,678 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 23:04:54,755 [INFO] Augmented (RandomHorizontalFlip) prediction: sturgeon (84.13%)
+2025-07-22 23:04:54,756 [INFO] Single image rotated with angle: 70.44 degrees
+2025-07-22 23:04:54,833 [INFO] Augmented (RandomRotation) prediction: tench (60.21%)
+2025-07-22 23:04:54,834 [INFO] Single image adjusted with brightness delta: 34.26
+2025-07-22 23:04:54,911 [INFO] Augmented (BrightnessAdjust) prediction: tench (66.69%)
+2025-07-22 23:04:54,912 [INFO] Single image adjusted with contrast factor: 2.05
+2025-07-22 23:04:54,985 [INFO] Augmented (ContrastAdjust) prediction: tench (62.56%)
+2025-07-22 23:04:55,075 [INFO] File: ÆÁÄ»½ØÍ¼ 2025-07-21 171154.png | Original prediction: plate rack (43.42%)
+2025-07-22 23:04:55,076 [INFO] Single image flipped horizontally with probability 1
+2025-07-22 23:04:55,155 [INFO] Augmented (RandomHorizontalFlip) prediction: comic book (13.40%)
+2025-07-22 23:04:55,156 [INFO] Single image rotated with angle: 65.27 degrees
+2025-07-22 23:04:55,237 [INFO] Augmented (RandomRotation) prediction: binder (10.72%)
+2025-07-22 23:04:55,237 [INFO] Single image adjusted with brightness delta: 47.96
+2025-07-22 23:04:55,324 [INFO] Augmented (BrightnessAdjust) prediction: binder (8.25%)
+2025-07-22 23:04:55,325 [INFO] Single image adjusted with contrast factor: 2.12
+2025-07-22 23:04:55,412 [INFO] Augmented (ContrastAdjust) prediction: envelope (30.13%)
