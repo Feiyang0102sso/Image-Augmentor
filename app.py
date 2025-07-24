@@ -60,7 +60,7 @@ def load_imagenet_classes():
 
 # --- Streamlit UI and App Logic ---
 st.set_page_config(page_title="Image Augmentation & Inference", layout="wide")
-st.title("🖼️ Image Augmentation & Inference Analyzer")
+st.title("Image Augmentation & Inference Analyzer")
 
 with st.spinner("Initializing model..."):
     model, device = load_model()
@@ -184,7 +184,7 @@ def reset_analysis_state():
 
 
 # --- Sidebar Controls ---
-st.sidebar.header("⚙️ Control Panel")
+st.sidebar.header("Control Panel")
 mode = st.sidebar.radio("Select Mode", ('Single Image', 'Batch of Images'), on_change=reset_analysis_state)
 uploaded_files = st.sidebar.file_uploader(
     "Upload Image(s)", type=['png', 'jpg', 'jpeg'],
@@ -211,7 +211,7 @@ with st.sidebar.expander(expander_title):
     st.code(config_to_display, language='json')
 
 # --- Main Application Logic ---
-if st.sidebar.button("🚀 Run Analysis", type="primary", use_container_width=True, disabled=(not model or not classes)):
+if st.sidebar.button("Run Analysis", type="primary", use_container_width=True, disabled=(not model or not classes)):
     if not uploaded_files:
         st.warning("Please upload at least one image.")
         st.stop()
@@ -259,10 +259,10 @@ if st.sidebar.button("🚀 Run Analysis", type="primary", use_container_width=Tr
 # 4. This block now handles DISPLAYING the results from session state.
 # It runs every time, but only shows output if the analysis_complete flag is True.
 if st.session_state.analysis_complete:
-    st.header("📝 Processing Logs")
+    st.header("Processing Logs")
     st.code("\n".join(st.session_state.logs), language="log")
 
-    st.header("📊 Visual Comparison of Results")
+    st.header("Visual Comparison of Results")
     plot_and_display_results(
         st.session_state.originals,
         st.session_state.aug_lists,

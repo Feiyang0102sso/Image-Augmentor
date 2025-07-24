@@ -159,16 +159,22 @@ augmentor/
 
 *注意：如果某个操作不提供 params 字段，将使用其默认参数。*
 
-### 3. 运行演示脚本
+### 3. CLI运行演示脚本
 
-打开终端，进入 augmentor 目录，通过命令行参数指定运行模式。
+打开终端，进入 augmentor 目录，通过命令行参数指定运行模式，进入CLI_demo目录。
+
+``` bash
+cd CLI_demo
+```
+
+
 
 #### 模式一：单张图片增强
 
 此模式会处理 demo_picture/ 下的单张图片，并将原始图与流水线中每一步操作后的效果图并排显示和保存。
 
 ```bash
-python multi_demo.py single
+python augmentor_demo.py single
 ```
 
 运行后，会生成并打开一张名为 single_augmented_comparison.png 的对比图。
@@ -178,7 +184,7 @@ python multi_demo.py single
 此模式会处理 demo_picture/batches/ 文件夹下的所有图片，并为每张图片生成一行对比图，最终将所有结果合并在一张大图中。
 
 ```bash
-python multi_demo.py batch
+python augmentor_demo.py batch
 ```
 
 运行后，会在 demo_picture/batches/ 目录下生成一张名为 augmented_comparison_grid.png 的网格对比图。
@@ -190,6 +196,55 @@ python multi_demo.py batch
 ``` bash
 python augmentor_demo.py single --config custom_config.json  # Custom config file
 python augmentor_demo.py batch --config custom_config.json   # Custom config file
+```
+
+### streamlit ui界面
+
+进入项目根目录，并输入以下命令启动streamlit
+
+``` bash
+streamlit run app.py
+```
+
+#### ![1](./assets/1.png)
+
+#### 控制面板 (左侧)
+
+左侧的控制面板是用户进行所有输入和配置的地方。
+
+- **选择模式 (Select Mode)**:
+    - **Single Image**: 选择此模式以上传和分析单张图片。
+    - **Batch of Images**: 选择此模式以处理一个批次的图片。
+
+- **上传配置文件 (Upload config.json)**:
+    - 用户可以上传自定义的 `config.json` 文件来定义图像增强的流程和参数。
+    - 默认为config.json，用户可以点击analyse上方的按钮仔细阅读当前选中的json内容
+
+#### 结果展示区 (右侧)
+
+包括
+
+- **处理日志 (Processing Logs)**:
+- **可视化结果对比 (Visual Comparison of Results)**:
+- **下载结果图片 (Download Results Image)**:
+
+## DOCKER设置
+
+进入项目根目录
+
+``` bash
+#新建一个名为augmentor_app的镜像
+docker build -t augmentor_app .    
+#新建一个名为augmentor_app_container的容器
+docker run --name augmentor_app_container -p 8501:8501 augmentor_app
+```
+
+### 快速启动docker镜像
+
+运行下列脚本，快速搭建docker-compose.yml
+
+``` bash
+docker-compose up -d
 ```
 
 
@@ -235,4 +290,5 @@ git push
 | v1.0.0 | 2025-07-5  | initial push                                                 |
 | v1.1.0 | 2025-07-8  | 允许进行图片批处理<br />优化代码避免臃肿                     |
 | v1.2.0 | 2025-07-14 | 新增log功能<br />新增4中方法，允许随机应用，随即选择<br />新增自定义config文件功能 |
-| 1.3.0  | 2025-07-18 | 新增图片推断功能                                             |
+| v1.3.0 | 2025-07-18 | 新增图片推断功能                                             |
+| v1.4.0 | 2025-07-24 | 新增streamlit ui界面<br />新增docker容器，一键快速启动脚本   |

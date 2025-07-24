@@ -1,0 +1,18 @@
+version: '3.8'  # 版本号
+
+services:
+  augmentor_app:
+    image: augmentor_app  # 使用你已经构建的镜像
+    container_name: augmentor_container  # 设置容器名称
+    ports:
+      - "8501:8501"  # 映射主机端口 8501 到容器端口 8501
+    volumes:
+      - .:/app  # 挂载当前目录到容器中的 /app 目录
+    environment:
+      - STREAMLIT_SERVER_PORT=8501  # 可选的环境变量
+    networks:
+      - augmentor_network  # 使用自定义网络
+
+networks:
+  augmentor_network:
+    driver: bridge  # 使用 bridge 网络驱动
